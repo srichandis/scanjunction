@@ -1,0 +1,6 @@
+{
+  "name": "ScanJunction Home",
+  "description": "A premium, fully responsive home page for ScanJunction with live WordPress blog integration, styled beautifully with Tailwind CSS and interactive animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
