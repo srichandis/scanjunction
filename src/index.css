@@ -3,7 +3,7 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-serif: "Inter", ui-sans-serif, system-ui, sans-serif;
   
   --color-brand-teal: #084c61;
   --color-brand-darkteal: #0b2545;

@@ -51,9 +51,7 @@ export default function BlogSection() {
               </span>
             )}
             <a 
-              href="https://scanjunction.com/blog" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="/blog" 
               className="text-sm text-brand-orange hover:text-brand-orange/80 font-sans font-semibold inline-flex items-center space-x-1"
             >
               <span>View All Blogs</span>
@@ -105,7 +103,7 @@ export default function BlogSection() {
 
                     {/* Blog Title */}
                     <h3 className="font-serif font-bold text-lg text-brand-darkteal leading-snug group-hover:text-brand-orange transition-colors">
-                      <a href={post.link} target="_blank" rel="noopener noreferrer">
+                      <a href={`/${post.slug}`}>
                         {post.title}
                       </a>
                     </h3>
@@ -119,12 +117,10 @@ export default function BlogSection() {
                   {/* Read More button */}
                   <div className="pt-2 border-t border-slate-50">
                     <a 
-                      href={post.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      href={`/${post.slug}`}
                       className="inline-flex items-center space-x-1.5 text-xs font-bold text-brand-orange group-hover:translate-x-1 transition-transform"
                     >
-                      <span>Read Original Post</span>
+                      <span>Read Article</span>
                       <ArrowUpRight size={14} />
                     </a>
                   </div>

@@ -1,7 +1,16 @@
-import { useState } from "react";
-import { Plus, Minus, HelpCircle } from "lucide-react";
+"use client";
 
-const faqSections = [
+import { useState } from "react";
+import { Plus, Minus, HelpCircle, ArrowUpRight, MessageCircle } from "lucide-react";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+
+interface FaqSection {
+  category: string;
+  items: { id: number; question: string; answer: string }[];
+}
+
+const faqSections: FaqSection[] = [
   {
     category: "General",
     items: [
@@ -73,7 +82,8 @@ const faqSections = [
       {
         id: 11,
         question: "What payment methods do you accept?",
-        answer: "We accept Cash on Delivery, UPI, and NEFT as payment methods.",
+        answer:
+          "We accept Cash on Delivery, UPI, and NEFT as payment methods.",
       },
     ],
   },
@@ -183,27 +193,41 @@ const faqSections = [
   },
 ];
 
-export default function Faq() {
+export default function FaqsPage() {
   const [openFaqId, setOpenFaqId] = useState<number | null>(1);
 
+  const handleNavigate = (sectionId: string) => {
+    const target = sectionId.startsWith("services-") ? "services" : sectionId;
+    window.location.href = `/${target === "home" ? "" : "#" + target}`;
+  };
+
   return (
-    <section className="py-20 bg-white" id="faq">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <span className="font-sans text-xs uppercase tracking-[0.2em] font-semibold text-brand-orange block">
+    <div className="min-h-screen bg-white">
+      <Navbar onNavigate={handleNavigate} activeSection="" />
+      <div className="h-[120px]" />
+
+      {/* Hero Header */}
+      <section className="bg-gradient-to-br from-brand-lightorange/40 via-white to-slate-50 py-20 border-b border-slate-100">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <span className="inline-block font-sans text-xs uppercase tracking-[0.2em] font-semibold text-brand-orange">
             Got Questions?
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-brand-darkteal">
-            Frequently Asked Questions
-          </h2>
-          <div className="w-16 h-1 bg-brand-orange mx-auto rounded-full"></div>
+          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brand-darkteal leading-[1.1]">
+            Frequently Asked{" "}
+            <span className="text-brand-orange">Questions</span>
+          </h1>
+          <p className="font-sans text-slate-500 text-lg leading-relaxed max-w-2xl mx-auto">
+            Everything you need to know about our digitization process, pricing,
+            and how we keep your memories safe.
+          </p>
         </div>
+      </section>
 
-        {/* Accordions by Category */}
-        <div className="space-y-10" id="faq-accordion-group">
+      {/* FAQ Accordion by Category */}
+      <section className="py-16 sm:py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {faqSections.map((section) => (
-            <div key={section.category}>
+            <div key={section.category} className="mb-10 last:mb-0">
               {/* Category Heading */}
               <div className="flex items-center space-x-3 mb-5">
                 <div className="h-px flex-1 bg-slate-100" />
@@ -219,31 +243,31 @@ export default function Faq() {
                   return (
                     <div
                       key={faq.id}
-                      className={`border rounded-2xl transition-all overflow-hidden ${
+                      className={`rounded-2xl transition-all duration-200 overflow-hidden border ${
                         isOpen
-                          ? "border-brand-orange/30 bg-brand-lightorange/10 shadow-sm"
-                          : "border-slate-100 bg-white hover:bg-slate-50"
+                          ? "border-brand-orange/20 bg-brand-lightorange/20 shadow-sm"
+                          : "border-slate-100 bg-white hover:bg-slate-50 hover:border-slate-200"
                       }`}
                     >
                       <button
                         onClick={() =>
                           setOpenFaqId(isOpen ? null : faq.id)
                         }
-                        className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none cursor-pointer"
+                        className="w-full text-left px-6 py-5 flex items-center justify-between focus:outline-none cursor-pointer gap-4"
                       >
-                        <div className="flex items-center space-x-3 pr-4">
+                        <div className="flex items-start space-x-3">
                           <HelpCircle
                             size={18}
-                            className={
+                            className={`mt-0.5 shrink-0 ${
                               isOpen ? "text-brand-orange" : "text-slate-400"
-                            }
+                            }`}
                           />
-                          <span className="font-serif font-bold text-slate-800 text-sm sm:text-base leading-snug">
+                          <span className="font-serif font-semibold text-slate-800 text-sm sm:text-base leading-snug">
                             {faq.question}
                           </span>
                         </div>
                         <div
-                          className={`p-1 rounded-full shrink-0 ${
+                          className={`p-1 rounded-full shrink-0 transition-colors ${
                             isOpen
                               ? "bg-brand-orange text-white"
                               : "bg-slate-100 text-slate-500"
@@ -254,10 +278,12 @@ export default function Faq() {
                       </button>
 
                       {isOpen && (
-                        <div className="px-6 pb-5 pt-1 border-t border-slate-100/50 animate-fade-in">
-                          <p className="font-sans text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            {faq.answer}
-                          </p>
+                        <div className="px-6 pb-6 pt-0 animate-fade-in">
+                          <div className="border-t border-brand-orange/10 pt-4">
+                            <p className="font-sans text-slate-600 text-sm leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -266,8 +292,39 @@ export default function Faq() {
               </div>
             </div>
           ))}
+
+          {/* Still have questions */}
+          <div className="mt-12 text-center bg-slate-50 rounded-2xl p-8 border border-slate-100">
+            <h3 className="font-serif font-bold text-xl text-brand-darkteal mb-2">
+              Still have questions?
+            </h3>
+            <p className="font-sans text-slate-500 text-sm mb-6 max-w-md mx-auto">
+              Can&apos;t find the answer you&apos;re looking for? Reach out to
+              our team.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="https://wa.me/919886444484"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-emerald-500 hover:bg-emerald-600 text-white font-sans font-semibold px-6 py-3 rounded-full text-sm transition-all"
+              >
+                <MessageCircle size={16} className="fill-current" />
+                <span>Chat on WhatsApp</span>
+              </a>
+              <a
+                href="/"
+                className="inline-flex items-center space-x-2 text-brand-orange hover:text-brand-orange/80 font-sans font-semibold text-sm transition-colors"
+              >
+                <span>Contact Us</span>
+                <ArrowUpRight size={14} />
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Footer onNavigate={handleNavigate} />
+    </div>
   );
 }

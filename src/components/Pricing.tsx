@@ -3,8 +3,8 @@ import { Check, ShieldCheck, Heart } from "lucide-react";
 export default function Pricing() {
   const plans = [
     {
-      title: "Print Photos",
-      price: "₹8",
+      title: "Photo Scanning",
+      price: "Starting from ₹4",
       unit: "per photo",
       description: "Perfect for loose family photos, vintage polaroids, and snapshot booklets.",
       features: [
@@ -18,8 +18,23 @@ export default function Pricing() {
       color: "border-brand-orange/30 shadow-brand-orange/5"
     },
     {
-      title: "Negative & Slide Film",
-      price: "₹12",
+      title: "Album Scanning",
+      price: "Custom",
+      unit: "Quote",
+      description: "Whole photo albums scanned cover-to-cover preserving captions and page arrangements.",
+      features: [
+        "Non-destructive album scanning",
+        "Preserves original page layout",
+        "High-resolution flatbed scanning",
+        "Careful handling of glued photos",
+        "Digital files organized by page"
+      ],
+      popular: false,
+      color: "border-slate-100"
+    },
+    {
+      title: "Negative Scanning",
+      price: "Starting from ₹8",
       unit: "per frame",
       description: "Best for 35mm film negatives, super slides, and mounted film strips.",
       features: [
@@ -33,16 +48,76 @@ export default function Pricing() {
       color: "border-slate-100"
     },
     {
-      title: "VHS & Video Tapes",
-      price: "₹450",
+      title: "Slide Scanning",
+      price: "Starting from ₹8",
+      unit: "per slide",
+      description: "For 35mm slides, super 35, and mounted slides cleaned and digitally enhanced.",
+      features: [
+        "High-resolution slide scanning",
+        "Color correction & restoration",
+        "Mold & dust removal pre-treatment",
+        "Digital enhancement of faded colors",
+        "Delivered in JPEG + TIFF formats"
+      ],
+      popular: false,
+      color: "border-slate-100"
+    },
+    {
+      title: "Document Scanning",
+      price: "Starting from ₹2",
+      unit: "per page",
+      description: "Ideal for old letters, certificates, maps, and important documents.",
+      features: [
+        "High-speed duplex scanning",
+        "OCR conversion to searchable PDF",
+        "Color, grayscale & B&W options",
+        "Secure handling of sensitive docs",
+        "Digital files organized by folders"
+      ],
+      popular: false,
+      color: "border-slate-100"
+    },
+    {
+      title: "VHS to Digital",
+      price: "Starting from ₹1,999",
       unit: "per tape",
       description: "For VHS, VHS-C, Hi8, and camcorder cassettes lying in drawers.",
       features: [
         "Full capture of vintage sound and tape",
         "Digitized to modern MP4 files",
-        "Standard audio denoise filters",
+        "Time-base correction for degraded tapes",
         "Chapters division & simple title card",
-        "Optional conversion to digital download"
+        "Optional cloud or USB delivery"
+      ],
+      popular: false,
+      color: "border-slate-100"
+    },
+    {
+      title: "Audio Conversion",
+      price: "Starting from ₹799",
+      unit: "per cassette",
+      description: "For compact cassettes, microcassettes, and reel-to-reel tapes.",
+      features: [
+        "Full analog-to-digital conversion",
+        "Noise reduction processing",
+        "Digitized to high-quality MP3/WAV",
+        "Track splitting & labeling",
+        "Optional cloud delivery"
+      ],
+      popular: false,
+      color: "border-slate-100"
+    },
+    {
+      title: "Photo Restoration",
+      price: "Starting from ₹499",
+      unit: "per photo",
+      description: "Professional digital repair for damaged, torn, or faded photographs.",
+      features: [
+        "Tear & crease removal",
+        "Color correction & enhancement",
+        "Stain & water damage repair",
+        "Missing area reconstruction",
+        "Delivered in TIFF + JPEG formats"
       ],
       popular: false,
       color: "border-slate-100"

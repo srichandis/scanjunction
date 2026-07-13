@@ -1,11 +1,22 @@
 export interface BlogPost {
   id: number;
   title: string;
+  slug: string;
   excerpt: string;
+  content?: string;
   date: string;
   link: string;
   imageUrl: string;
   author: string;
+  categories?: number[];
+  categoryNames?: string[];
+}
+
+export interface BlogCategory {
+  id: number;
+  name: string;
+  slug: string;
+  count: number;
 }
 
 export interface Testimonial {

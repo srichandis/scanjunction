@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Mail, Phone, MessageCircle, Heart } from "lucide-react";
+import logoWhite from "../assets/images/scanjunction-logo-white.png";
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -27,7 +28,7 @@ export default function Footer({ onNavigate }: FooterProps) {
     { name: "How It Works", id: "how-it-works" },
     { name: "Pricing", id: "pricing" },
     { name: "Family Vault", id: "family-vault" },
-    { name: "Blog Feed", id: "blog" },
+    { name: "Blog Feed", id: "/blog" },
     { name: "Frequently Asked Questions", id: "faq" },
     { name: "Contact Us", id: "contact" }
   ];
@@ -42,9 +43,11 @@ export default function Footer({ onNavigate }: FooterProps) {
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-4 space-y-6">
             <div className="space-y-2">
-              <span className="font-serif font-bold text-2xl tracking-tight text-white">
-                Scan<span className="text-brand-orange">Junction</span>
-              </span>
+              <img 
+                src={logoWhite.src} 
+                alt="ScanJunction Logo" 
+                className="h-7 sm:h-8 w-auto object-contain"
+              />
               <p className="text-xs uppercase tracking-[0.15em] text-slate-500 font-semibold font-sans">
                 Trust Your Memory, Our Expertise
               </p>
@@ -97,12 +100,21 @@ export default function Footer({ onNavigate }: FooterProps) {
             <ul className="space-y-2 text-sm text-slate-400">
               {company.map((comp) => (
                 <li key={comp.name}>
-                  <button 
-                    onClick={() => onNavigate(comp.id)}
-                    className="hover:text-brand-orange transition-colors text-left"
-                  >
-                    {comp.name}
-                  </button>
+                  {comp.id.startsWith("/") ? (
+                    <a 
+                      href={comp.id}
+                      className="hover:text-brand-orange transition-colors text-left block"
+                    >
+                      {comp.name}
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={() => onNavigate(comp.id)}
+                      className="hover:text-brand-orange transition-colors text-left"
+                    >
+                      {comp.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
