@@ -1,4 +1,5 @@
 import { Star, ShieldCheck, Truck, Sparkles, Play, ArrowRight } from "lucide-react";
+import type { StaticImageData } from "next/image";
 import heroImg from "../assets/images/hero_memories_archive_1783873592836.jpg";
 import polaroidImg from "../assets/images/polaroid_holiday_1783873608378.jpg";
 import slideImg from "../assets/images/vintage_slide_1783873623937.jpg";
@@ -9,6 +10,10 @@ interface HeroProps {
 }
 
 export default function Hero({ onGetSamples, onSeeHowItWorks }: HeroProps) {
+  const heroSrc = (heroImg as StaticImageData).src;
+  const polaroidSrc = (polaroidImg as StaticImageData).src;
+  const slideSrc = (slideImg as StaticImageData).src;
+
   return (
     <section 
       className="relative pt-[120px] pb-16 md:pt-[160px] md:pb-24 overflow-hidden bg-radial from-slate-50 to-white"
@@ -110,7 +115,7 @@ export default function Hero({ onGetSamples, onSeeHowItWorks }: HeroProps) {
             {/* Main Image Framed Nicely */}
             <div className="relative z-10 w-full max-w-[460px] rounded-2xl shadow-2xl border-4 border-white overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500 bg-slate-100">
               <img 
-                src={heroImg} 
+                src={heroSrc} 
                 alt="Vintage family photographs lying on a wooden table, being examined with love" 
                 className="w-full h-[400px] object-cover"
                 referrerPolicy="no-referrer"
@@ -132,7 +137,7 @@ export default function Hero({ onGetSamples, onSeeHowItWorks }: HeroProps) {
             {/* Secondary Floating Decorative Frame (Polaroid effect) */}
             <div className="absolute -bottom-6 -left-6 hidden sm:block z-20 w-[180px] bg-white p-3 rounded-lg shadow-xl transform -rotate-6 border border-slate-100">
               <img 
-                src={polaroidImg} 
+                src={polaroidSrc} 
                 alt="Memory Slide" 
                 className="w-full h-[130px] object-cover rounded-md mb-2"
                 referrerPolicy="no-referrer"
@@ -143,7 +148,7 @@ export default function Hero({ onGetSamples, onSeeHowItWorks }: HeroProps) {
             {/* Tertiary Floating Slide (35mm Slide effect) */}
             <div className="absolute -top-6 right-6 hidden sm:block z-20 w-[120px] bg-slate-50 p-2 border-8 border-white shadow-lg transform rotate-12 rounded">
               <img 
-                src={slideImg} 
+                src={slideSrc} 
                 alt="Vintage camera negative scan" 
                 className="w-full h-[80px] object-cover rounded-sm filter sepia"
                 referrerPolicy="no-referrer"
