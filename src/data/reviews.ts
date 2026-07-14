@@ -1,0 +1,68 @@
+import { Testimonial } from "../types";
+
+export const googleReviews: Testimonial[] = [
+  {
+    id: 1,
+    name: "Kalpana Sampath",
+    timeAgo: "1 week ago",
+    rating: 5,
+    text: "Very professional, on time service. Courteous staff and they have given options for the output which is very good. Lifetime memories are preserved through the digitalised photos! Thank you 🙏",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 2,
+    name: "SHARADHI",
+    timeAgo: "1 month ago",
+    rating: 5,
+    text: "I recently got my parents' wedding albums digitized here after they were damaged by fungus. The team did an excellent job, and the photo quality turned out great. They were patient with my requests—when a few photos were missed initially, they quickly rescanned everything without any hassle. They also carefully placed all the photos back into the albums. Highly recommended!",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 3,
+    name: "Abhishek Saraswat",
+    timeAgo: "2 months ago",
+    rating: 5,
+    text: "The process was incredibly convenient from start to finish. They handled everything—picking up my photos, scanning and uploading them, and returning the originals—requiring absolutely no effort on my part. It's an excellent way to preserve old memories. I highly recommend this service for anyone with stacks of hardcopy photos tucked away in storage.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 4,
+    name: "Jayesh Patil",
+    timeAgo: "2 months ago",
+    rating: 5,
+    text: "Amazing service. I wanted flatbed scans done for my book of my sketches. It was very difficult to find but finally I could find someone who do this but then I found scan junction. Very professional at their work.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    name: "PRASHANT SAJJAN",
+    timeAgo: "7 months ago",
+    rating: 5,
+    text: "I visited Scan Junction, Basavanagudi to enhance and clarify an old black-and-white passport-size photo, and they did an excellent job. The staff were patient, skilled, and paid great attention to detail. The final result was far better than I expected, with the original features perfectly preserved. Their service is quick, professional, and well timed. Highly recommended for photo restoration and scanning work!",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    name: "Sudhir Pai",
+    timeAgo: "8 months ago",
+    rating: 5,
+    text: "Good experience getting digital videos done from old Sony camcorder cassettes",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 7,
+    name: "Gopalkrishna Pai",
+    timeAgo: "10 months ago",
+    rating: 5,
+    text: "I had the opportunity to work with ScanJunction to digitize an old book from a Xerox copy and they did a great job. The service provided by Scan Junction was excellent and really professional. Without a doubt, I will recommend photo scanning services.",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop",
+  },
+  {
+    id: 8,
+    name: "Aishu Kiccha",
+    timeAgo: "1 year ago",
+    rating: 5,
+    text: "Thanks a lot. You made my dream come true. I got my mother's marriage VHS converted to USB. For the first time I saw my amma marriage video. It was my childhood dream to watch her marriage video. I am trying to save her memories and it is the right place, I got her memories back. I am so happy with that. Thanks a lot. According to everyone it's just a marriage video but for me it's everything.",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop",
+  },
+];

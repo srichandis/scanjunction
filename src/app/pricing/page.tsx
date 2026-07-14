@@ -22,8 +22,8 @@ const plans = [
   },
   {
     title: "Album Scanning",
-    price: "Custom",
-    unit: "Quote",
+    price: "starting from ₹2",
+    unit: "per photo",
     description:
       "Whole photo albums scanned cover-to-cover preserving captions and page arrangements.",
     features: [
@@ -37,8 +37,8 @@ const plans = [
   },
   {
     title: "Negative Scanning",
-    price: "Starting from ₹8",
-    unit: "per frame",
+    price: "Starting from ₹600",
+    unit: "per roll of 35 frames",
     description:
       "Best for 35mm film negatives, super slides, and mounted film strips.",
     features: [
@@ -52,7 +52,7 @@ const plans = [
   },
   {
     title: "Slide Scanning",
-    price: "Starting from ₹8",
+    price: "Starting from ₹20",
     unit: "per slide",
     description:
       "For 35mm slides, super 35, and mounted slides cleaned and digitally enhanced.",
@@ -82,8 +82,8 @@ const plans = [
   },
   {
     title: "VHS to Digital",
-    price: "Starting from ₹1,999",
-    unit: "per tape",
+    price: "Starting from ₹600",
+    unit: "per hour recording",
     description:
       "For VHS, VHS-C, Hi8, and camcorder cassettes lying in drawers.",
     features: [
@@ -97,7 +97,7 @@ const plans = [
   },
   {
     title: "Audio Conversion",
-    price: "Starting from ₹799",
+    price: "Starting from ₹500",
     unit: "per cassette",
     description:
       "For compact cassettes, microcassettes, and reel-to-reel tapes.",
@@ -129,6 +129,14 @@ const plans = [
 
 export default function PricingPage() {
   const handleNavigate = (sectionId: string) => {
+    if (sectionId === "about-us") {
+      window.location.href = "/about";
+      return;
+    }
+    if (sectionId === "contact") {
+      window.location.href = "/contact";
+      return;
+    }
     const target = sectionId.startsWith("services-") ? "services" : sectionId;
     window.location.href = `/${target === "home" ? "" : "#" + target}`;
   };
@@ -144,7 +152,7 @@ export default function PricingPage() {
           <span className="inline-block font-sans text-xs uppercase tracking-[0.2em] font-semibold text-brand-orange">
             Affordable Memory Archiving
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-brand-darkteal leading-[1.1]">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-brand-darkteal leading-[1.1]">
             Simple,{" "}
             <span className="text-brand-orange">Transparent Pricing</span>
           </h1>
@@ -185,7 +193,7 @@ export default function PricingPage() {
                   </div>
 
                   <div className="flex items-baseline space-x-1 border-b border-slate-50 pb-6">
-                    <span className="font-serif text-4xl sm:text-5xl font-extrabold text-brand-darkteal">
+                    <span className="font-serif text-2xl sm:text-3xl font-extrabold text-brand-darkteal">
                       {plan.price}
                     </span>
                     <span className="font-sans text-xs text-slate-400 font-semibold">

@@ -73,6 +73,14 @@ const steps = [
 
 export default function HowItWorksPage() {
   const handleNavigate = (sectionId: string) => {
+    if (sectionId === "about-us") {
+      window.location.href = "/about";
+      return;
+    }
+    if (sectionId === "contact") {
+      window.location.href = "/contact";
+      return;
+    }
     const target = sectionId.startsWith("services-") ? "services" : sectionId;
     window.location.href = `/${target === "home" ? "" : "#" + target}`;
   };
@@ -134,7 +142,7 @@ export default function HowItWorksPage() {
           {/* Stats Row */}
           <div className="mt-16 bg-gradient-to-br from-brand-lightorange/30 via-white to-slate-50 rounded-3xl p-8 md:p-12 shadow-lg border border-slate-100 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
-              { value: "20+", label: "Years of Experience" },
+              { value: "18+", label: "Years of Experience" },
               { value: "5 Million+", label: "Photos Digitized" },
               { value: "1000+", label: "Happy Families" },
               { value: "99.9%", label: "Safe Handling Record" },

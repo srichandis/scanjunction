@@ -6,14 +6,10 @@ import Hero from "./components/Hero";
 import WhatWeDigitize from "./components/WhatWeDigitize";
 import WhyTrustUs from "./components/WhyTrustUs";
 import Transformations from "./components/Transformations";
-import HowItWorks from "./components/HowItWorks";
 import FamilyVault from "./components/FamilyVault";
 import Testimonials from "./components/Testimonials";
-import BlogSection from "./components/BlogSection";
-import Faq from "./components/Faq";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Pricing from "./components/Pricing";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -21,7 +17,17 @@ export default function App() {
   // Custom function to handle navigation smoothly
   const handleNavigate = (sectionId: string) => {
     setActiveSection(sectionId);
-    
+
+    // Redirect to standalone pages
+    if (sectionId === "about-us") {
+      window.location.href = "/about";
+      return;
+    }
+    if (sectionId === "contact") {
+      window.location.href = "/contact";
+      return;
+    }
+
     // Check if we are targeting services directly or general section IDs
     if (sectionId.startsWith("services-")) {
       const element = document.getElementById("services");
@@ -40,7 +46,7 @@ export default function App() {
   // Monitor user scrolling to update active item in navbar dynamically
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "how-it-works", "pricing", "family-vault", "about-us", "blog", "contact"];
+      const sections = ["home", "how-it-works", "family-vault", "about-us", "contact"];
       const scrollPosition = window.scrollY + 160;
 
       for (const section of sections) {
@@ -74,7 +80,7 @@ export default function App() {
         />
 
         {/* Services / What We Digitize Grid */}
-        <WhatWeDigitize onSelectCategory={(catId) => handleNavigate("contact")} />
+        <WhatWeDigitize />
 
         {/* Why Trust Us (Core standards) */}
         <WhyTrustUs />
@@ -82,23 +88,11 @@ export default function App() {
         {/* Transformations (Interactive slider showcase) */}
         <Transformations />
 
-        {/* How It Works (Timeline & Stats) */}
-        <HowItWorks />
-
-        {/* Pricing Table & Bulk Deals Info */}
-        <Pricing />
-
         {/* Family Vault Feature Presentation */}
         <FamilyVault />
 
-        {/* Live Blogs Synchronized from scanjunction.com WordPress API */}
-        <BlogSection />
-
         {/* Happy Families Google Reviews */}
         <Testimonials />
-
-        {/* FAQ Accordion Section */}
-        <Faq />
 
         {/* Sample Request & Contact Forms */}
         <Contact />

@@ -6,8 +6,8 @@ export default function Contact() {
     name: "",
     phone: "",
     email: "",
-    service: "photos",
-    quantity: "1-100",
+    service: [] as string[],
+    quantity: 100,
     address: "",
     message: ""
   });
@@ -18,6 +18,15 @@ export default function Contact() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleServiceToggle = (format: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      service: prev.service.includes(format)
+        ? prev.service.filter((f) => f !== format)
+        : [...prev.service, format],
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -33,8 +42,8 @@ export default function Contact() {
         name: "",
         phone: "",
         email: "",
-        service: "photos",
-        quantity: "1-100",
+        service: [] as string[],
+        quantity: 100,
         address: "",
         message: ""
       });
@@ -195,41 +204,74 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Service Needed */}
-                  <div className="space-y-1">
-                    <label htmlFor="service" className="font-sans font-semibold text-xs text-slate-700">Format to Scan *</label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-brand-orange focus:bg-white rounded-xl px-4 py-3 text-sm focus:outline-none transition-all"
-                    >
-                      <option value="photos">Photos / Albums</option>
-                      <option value="negatives">Negative Film</option>
-                      <option value="slides">35mm Mounted Slides</option>
-                      <option value="vhs">VHS / Video Tapes</option>
-                      <option value="documents">Books & Documents</option>
-                    </select>
+                  {/* Format to Scan - Multi Select */}
+                  <div className="space-y-1 sm:col-span-2">
+                    <label className="font-sans font-semibold text-xs text-slate-700">Format to Scan * <span className="text-slate-400 font-normal">(select one or more)</span></label>
+                    <div className="flex flex-wrap gap-2 mt-1.5">
+                      {[
+                        { value: "photos", label: "Photos / Albums" },
+                        { value: "negatives", label: "Negative Film" },
+                        { value: "slides", label: "35mm Mounted Slides" },
+                        { value: "vhs", label: "VHS / Video Tapes" },
+                        { value: "documents", label: "Books & Documents" },
+                      ].map((format) => {
+                        const isSelected = formData.service.includes(format.value);
+                        return (
+                          <button
+                            key={format.value}
+                            type="button"
+                            onClick={() => handleServiceToggle(format.value)}
+                            className={`px-4 py-2.5 rounded-xl text-xs font-semibold border-2 transition-all duration-200 cursor-pointer ${
+                              isSelected
+                                ? "bg-brand-orange text-white border-brand-orange shadow-md shadow-brand-orange/20"
+                                : "bg-slate-50 text-slate-600 border-slate-200 hover:border-brand-orange/40 hover:bg-white"
+                            }`}
+                          >
+                            {format.label}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Quantity */}
-                  <div className="space-y-1">
-                    <label htmlFor="quantity" className="font-sans font-semibold text-xs text-slate-700">Estimated Total Quantity</label>
-                    <select
-                      id="quantity"
-                      name="quantity"
-                      value={formData.quantity}
-                      onChange={handleChange}
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-brand-orange focus:bg-white rounded-xl px-4 py-3 text-sm focus:outline-none transition-all"
-                    >
-                      <option value="1-100">1 to 100 items</option>
-                      <option value="101-500">101 to 500 items</option>
-                      <option value="501-2000">501 to 2,000 items</option>
-                      <option value="2000+">More than 2,000 items</option>
-                    </select>
+                  {/* Quantity - Range Slider */}
+                  <div className="space-y-1 sm:col-span-2">
+                    <label htmlFor="quantity" className="font-sans font-semibold text-xs text-slate-700">
+                      Estimated Total Quantity: <span className="text-brand-orange font-bold text-sm">{formData.quantity.toLocaleString()}+ items</span>
+                    </label>
+                    <div className="pt-2 pb-1">
+                      <input
+                        type="range"
+                        id="quantity"
+                        name="quantity"
+                        min={0}
+                        max={5000}
+                        step={100}
+                        value={formData.quantity}
+                        onChange={(e) => {
+                          const val = parseInt(e.target.value, 10);
+                          setFormData((prev) => ({ ...prev, quantity: val }));
+                        }}
+                        className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer accent-brand-orange
+                          [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 
+                          [&::-webkit-slider-thumb]:bg-brand-orange [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:shadow-md 
+                          [&::-webkit-slider-thumb]:shadow-brand-orange/30 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white
+                          [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:hover:scale-110
+                          [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 
+                          [&::-moz-range-thumb]:bg-brand-orange [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white
+                          [&::-moz-range-thumb]:shadow-md"
+                      />
+                      <div className="flex justify-between text-xs text-slate-400 mt-1 px-0.5">
+                        <span>0</span>
+                        <span>1K</span>
+                        <span>2K</span>
+                        <span>3K</span>
+                        <span>4K</span>
+                        <span>5K+</span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Pickup Location */}

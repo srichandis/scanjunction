@@ -115,6 +115,14 @@ export default function BlogPostPage({
   }, [slug]);
 
   const handleNavigate = (sectionId: string) => {
+    if (sectionId === "about-us") {
+      window.location.href = "/about";
+      return;
+    }
+    if (sectionId === "contact") {
+      window.location.href = "/contact";
+      return;
+    }
     const target = sectionId.startsWith("services-") ? "services" : sectionId;
     window.location.href = `/${target === "home" ? "" : "#" + target}`;
   };

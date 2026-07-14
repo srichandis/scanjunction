@@ -103,27 +103,21 @@ export default function Transformations() {
     {
       id: 1,
       title: "Color Restoration & Fade Repair",
-      beforeUrl: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=400&auto=format&fit=crop&sepia=100&contrast=80",
-      afterUrl: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=400&auto=format&fit=crop&contrast=110"
+      beforeUrl: "https://res.cloudinary.com/duhxyuebe/image/upload/v1784028411/2-after_yyemd6.jpg",
+      afterUrl: "https://res.cloudinary.com/duhxyuebe/image/upload/v1784028412/2-before_aqkgar.jpg"
     },
     {
       id: 2,
       title: "B&W Scratch & Tear Removal",
-      beforeUrl: "https://images.unsplash.com/photo-1554941068-a252680d25d9?q=80&w=400&auto=format&fit=crop&blur=2",
-      afterUrl: "https://images.unsplash.com/photo-1554941068-a252680d25d9?q=80&w=400&auto=format&fit=crop"
+      beforeUrl: "https://res.cloudinary.com/duhxyuebe/image/upload/v1784028411/1-before_zfvyia.jpg",
+      afterUrl: "https://res.cloudinary.com/duhxyuebe/image/upload/v1784028411/1-after_uutyaf.jpg"
     },
     {
       id: 3,
       title: "Slide Film Dust & Mould Fix",
-      beforeUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=400&auto=format&fit=crop&brightness=80",
-      afterUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=400&auto=format&fit=crop&brightness=110"
+      beforeUrl: "https://res.cloudinary.com/duhxyuebe/image/upload/v1784040846/3-before_jeasga.jpg",
+      afterUrl: "https://res.cloudinary.com/duhxyuebe/image/upload/v1784040846/3-after_riftzl.jpg"
     },
-    {
-      id: 4,
-      title: "Vintage Negative Conversion",
-      beforeUrl: "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?q=80&w=400&auto=format&fit=crop&invert=true",
-      afterUrl: "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?q=80&w=400&auto=format&fit=crop"
-    }
   ];
 
   return (
@@ -145,7 +139,7 @@ export default function Transformations() {
         </div>
 
         {/* Compare Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {transformations.map((item) => (
             <ComparisonCard 
               key={item.id}

@@ -39,6 +39,14 @@ const features = [
 
 export default function FamilyVaultPage() {
   const handleNavigate = (sectionId: string) => {
+    if (sectionId === "about-us") {
+      window.location.href = "/about";
+      return;
+    }
+    if (sectionId === "contact") {
+      window.location.href = "/contact";
+      return;
+    }
     const target = sectionId.startsWith("services-") ? "services" : sectionId;
     window.location.href = `/${target === "home" ? "" : "#" + target}`;
   };
@@ -130,7 +138,7 @@ export default function FamilyVaultPage() {
                   </div>
                   <div className="text-[10px] leading-tight">
                     <p className="font-bold text-slate-800">ISO 27017 Safe</p>
-                    <p className="text-slate-400">Military-grade protection</p>
+                    <p className="text-slate-400">Safe &amp; secure</p>
                   </div>
                 </div>
               </div>

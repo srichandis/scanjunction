@@ -19,8 +19,8 @@ export default function Pricing() {
     },
     {
       title: "Album Scanning",
-      price: "Custom",
-      unit: "Quote",
+      price: "Starting from ₹2",
+      unit: "per photo",
       description: "Whole photo albums scanned cover-to-cover preserving captions and page arrangements.",
       features: [
         "Non-destructive album scanning",
@@ -34,8 +34,8 @@ export default function Pricing() {
     },
     {
       title: "Negative Scanning",
-      price: "Starting from ₹8",
-      unit: "per frame",
+      price: "Starting from ₹600",
+      unit: "per roll of 35 frames",
       description: "Best for 35mm film negatives, super slides, and mounted film strips.",
       features: [
         "Digitized on dedicated film scanners",
@@ -49,7 +49,7 @@ export default function Pricing() {
     },
     {
       title: "Slide Scanning",
-      price: "Starting from ₹8",
+      price: "Starting from ₹20",
       unit: "per slide",
       description: "For 35mm slides, super 35, and mounted slides cleaned and digitally enhanced.",
       features: [
@@ -79,8 +79,8 @@ export default function Pricing() {
     },
     {
       title: "VHS to Digital",
-      price: "Starting from ₹1,999",
-      unit: "per tape",
+      price: "Starting from ₹600",
+      unit: "per hour",
       description: "For VHS, VHS-C, Hi8, and camcorder cassettes lying in drawers.",
       features: [
         "Full capture of vintage sound and tape",
@@ -94,7 +94,7 @@ export default function Pricing() {
     },
     {
       title: "Audio Conversion",
-      price: "Starting from ₹799",
+      price: "Starting from ₹500",
       unit: "per cassette",
       description: "For compact cassettes, microcassettes, and reel-to-reel tapes.",
       features: [

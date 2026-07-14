@@ -1,17 +1,13 @@
-import { Image, BookOpen, Layers, Disc, FileText, Film, Volume2, Bookmark } from "lucide-react";
+import { Image, BookOpen, Layers, FileText, Film, Volume2, Bookmark } from "lucide-react";
 
-interface WhatWeDigitizeProps {
-  onSelectCategory: (id: string) => void;
-}
-
-export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps) {
+export default function WhatWeDigitize() {
   const categories = [
     {
       id: "photos",
       title: "Photos",
       icon: Image,
-      description: "Loose print photos of all sizes. Digitized up to 1200 DPI for ultra-clear reprints.",
-      imageUrl: "https://images.unsplash.com/photo-1554080353-a576cf803bda?q=80&w=400&auto=format&fit=crop",
+      description: "Loose print photos of all sizes. Digitized up to 3000 DPI for ultra-clear reprints.",
+      imageUrl: "https://images.unsplash.com/photo-1531684096782-1af8c28ddb95?q=80&w=400&auto=format&fit=crop",
       tag: "Popular"
     },
     {
@@ -19,15 +15,15 @@ export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps
       title: "Albums",
       icon: BookOpen,
       description: "Whole photo albums scanned cover-to-cover. We preserve your captions and page arrangements.",
-      imageUrl: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=400&auto=format&fit=crop",
+      imageUrl: "https://images.unsplash.com/photo-1632679760635-55966a6e3d42?q=80&w=400&auto=format&fit=crop",
       tag: "Expert Care"
     },
     {
       id: "negatives",
       title: "Negatives",
       icon: Layers,
-      description: "35mm, medium format, and large format negatives professionally inverted and color-corrected.",
-      imageUrl: "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?q=80&w=400&auto=format&fit=crop",
+      description: "35mm, medium format, and large format negatives scratch removed and color-corrected.",
+      imageUrl: "https://plus.unsplash.com/premium_photo-1698081087873-06103e201351?q=80&w=400&auto=format&fit=crop",
       tag: "Precise"
     },
     {
@@ -35,7 +31,7 @@ export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps
       title: "Slides",
       icon: Bookmark,
       description: "35mm slides, super 35, and mounted slides cleaned and digitally enhanced.",
-      imageUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=400&auto=format&fit=crop",
+      imageUrl: "https://images.unsplash.com/photo-1761682751228-783c48e7cd30?q=80&w=400&auto=format&fit=crop",
       tag: "Vibrant"
     },
     {
@@ -43,7 +39,7 @@ export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps
       title: "Documents",
       icon: FileText,
       description: "Old letters, certificates, degrees, maps, and drawings scanned into searchable PDFs.",
-      imageUrl: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=400&auto=format&fit=crop",
+      imageUrl: "https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?q=80&w=400&auto=format&fit=crop",
       tag: "Secure PDF"
     },
     {
@@ -51,15 +47,15 @@ export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps
       title: "Books",
       icon: BookOpen,
       description: "Diaries, family archives, religious texts scanned with specialized non-destructive scanners.",
-      imageUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&auto=format&fit=crop",
+      imageUrl: "https://images.unsplash.com/photo-1610116306796-6fea9f4fae38?q=80&w=400&auto=format&fit=crop",
       tag: "Non-Destructive"
     },
     {
       id: "vhs",
       title: "VHS Tapes",
       icon: Film,
-      description: "VHS, VHS-C, Hi8, and MiniDV tapes converted to digital MP4 files or DVDs.",
-      imageUrl: "https://images.unsplash.com/photo-1542204172-e7052809a86e?q=80&w=400&auto=format&fit=crop",
+      description: "VHS, VHS-C, Hi8, and MiniDV tapes converted to digital MP4 files on pendrives.",
+      imageUrl: "https://images.unsplash.com/photo-1493664543243-589b576c5bcd?q=80&w=400&auto=format&fit=crop",
       tag: "Trending"
     },
     {
@@ -67,7 +63,7 @@ export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps
       title: "Audio Cassettes",
       icon: Volume2,
       description: "Compact cassettes and reel-to-reel tapes converted to crystal-clear digital MP3 files.",
-      imageUrl: "https://images.unsplash.com/photo-1529251346356-27419ef2a674?q=80&w=400&auto=format&fit=crop",
+      imageUrl: "https://images.unsplash.com/photo-1573566472937-1fa7a6230e93?q=80&w=400&auto=format&fit=crop",
       tag: "Restored"
     }
   ];
@@ -95,7 +91,7 @@ export default function WhatWeDigitize({ onSelectCategory }: WhatWeDigitizeProps
               <div 
                 key={category.id}
                 id={`digitize-${category.id}`}
-                onClick={() => onSelectCategory(category.id)}
+                onClick={() => window.location.href = `/services/${category.id}`}
                 className="group bg-white rounded-2xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col h-full"
               >
                 {/* Image & Tag */}

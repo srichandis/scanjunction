@@ -10,6 +10,7 @@ interface NavbarProps {
 export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isPhotobooksOpen, setIsPhotobooksOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -32,6 +33,10 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
     { name: "Photo Restoration", id: "restoration" },
   ];
 
+  const photobookLinks = [
+    { name: "Create Photo Book", id: "photobook-create" },
+  ];
+
   const resources = [
     { name: "Blog", id: "blog" },
     { name: "Pricing", id: "pricing" },
@@ -49,6 +54,15 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
       window.location.href = "/family-vault";
     } else if (id === "how-it-works") {
       window.location.href = "/how-it-works";
+    } else if (id === "about-us") {
+      window.location.href = "/about";
+    } else if (id === "contact") {
+      window.location.href = "/contact";
+    } else if (id === "photobook-create") {
+      window.location.href = "/photobook/create";
+    } else if (id.startsWith("services-")) {
+      const serviceId = id.replace("services-", "");
+      window.location.href = `/services/${serviceId}`;
     } else {
       onNavigate(id);
     }
@@ -156,13 +170,42 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
               )}
             </div>
 
-            {/* Photobooks */}
-            <button
-              onClick={() => handleNavItemClick("services-photos")}
-              className="px-3 py-2 rounded-lg hover:text-brand-orange hover:bg-slate-50 transition-colors cursor-pointer"
+            {/* Photobooks Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsPhotobooksOpen(true)}
+              onMouseLeave={() => setIsPhotobooksOpen(false)}
             >
-              Photobooks
-            </button>
+              <button
+                className="flex items-center space-x-1 px-3 py-2 rounded-lg hover:text-brand-orange hover:bg-slate-50 transition-colors focus:outline-none cursor-pointer"
+                id="photobooks-dropdown-btn"
+              >
+                <span>Photobooks</span>
+                <ChevronDown size={13} className={`transform transition-transform duration-200 ${isPhotobooksOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {isPhotobooksOpen && (
+                <div
+                  className="absolute top-full left-0 mt-0.5 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50 animate-fade-in"
+                  id="photobooks-dropdown-menu"
+                >
+                  <div className="grid grid-cols-1 gap-0.5 px-1.5">
+                    {photobookLinks.map((link) => (
+                      <button
+                        key={link.id}
+                        onClick={() => {
+                          handleNavItemClick(link.id);
+                          setIsPhotobooksOpen(false);
+                        }}
+                        className="text-left px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-brand-orange text-xs transition-all cursor-pointer font-medium"
+                      >
+                        {link.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Family Vault */}
             <button
@@ -291,12 +334,20 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
 
             {/* Main Nav Items */}
             <div className="py-2 space-y-0.5">
-              <button
-                onClick={() => handleNavItemClick("services-photos")}
-                className="block w-full text-left py-2.5 px-1 border-b border-slate-100 hover:text-brand-orange"
-              >
-                Photobooks
-              </button>
+              {/* Photobooks Mobile */}
+              <div className="border-b border-slate-100 pb-1">
+                <span className="block w-full text-left py-2.5 px-1 text-slate-500 font-semibold text-sm">
+                  Photobooks
+                </span>
+                <div className="pl-4 space-y-0.5">
+                  <button
+                    onClick={() => handleNavItemClick("photobook-create")}
+                    className="block w-full text-left py-2 px-1 text-sm text-slate-600 hover:text-brand-orange"
+                  >
+                    Create Photo Book
+                  </button>
+                </div>
+              </div>
               <button
                 onClick={() => handleNavItemClick("family-vault")}
                 className="block w-full text-left py-2.5 px-1 border-b border-slate-100 hover:text-brand-orange"

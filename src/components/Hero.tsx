@@ -46,7 +46,7 @@ export default function Hero({ onGetSamples, onSeeHowItWorks }: HeroProps) {
                   <Star size={18} className="fill-current" />
                 </div>
                 <div className="font-sans">
-                  <p className="font-bold text-sm">1000+ Google Reviews</p>
+                  <p className="font-bold text-sm">100+ Google Reviews</p>
                   <p className="text-xs text-slate-500">4.9 Star Rating</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function Hero({ onGetSamples, onSeeHowItWorks }: HeroProps) {
                 </div>
                 <div className="font-sans">
                   <p className="font-bold text-sm">100% Safe Handling</p>
-                  <p className="text-xs text-slate-500">Priceless Heirloom Security</p>
+                  <p className="text-xs text-slate-500">Priceless Memory Protection</p>
                 </div>
               </div>
 
