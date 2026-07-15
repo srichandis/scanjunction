@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cleanWordPressHtml } from "@/lib/wordpress";
 
 function cleanHtml(htmlStr: string) {
   if (!htmlStr) return "";
@@ -79,9 +80,11 @@ export async function GET(request: NextRequest) {
         post.excerpt?.rendered || "Read our latest blog update on ScanJunction.",
       );
       const content = post.content?.rendered
-        ? post.content.rendered
-            .replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, "")
-            .trim()
+        ? cleanWordPressHtml(
+            post.content.rendered
+              .replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, "")
+              .trim(),
+          )
         : "";
       const dateObj = new Date(post.date);
       const formattedDate = Number.isNaN(dateObj.getTime())

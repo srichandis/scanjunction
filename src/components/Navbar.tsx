@@ -53,7 +53,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
     } else if (id === "family-vault") {
       window.location.href = "/family-vault";
     } else if (id === "how-it-works") {
-      window.location.href = "/how-it-works";
+      window.location.href = "/#how-it-works";
     } else if (id === "about-us") {
       window.location.href = "/about";
     } else if (id === "contact") {

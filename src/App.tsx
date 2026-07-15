@@ -76,7 +76,7 @@ export default function App() {
         {/* Hero Section */}
         <Hero 
           onGetSamples={() => handleNavigate("contact")} 
-          onSeeHowItWorks={() => handleNavigate("how-it-works")} 
+          onSeeHowItWorks={() => { window.location.href = "/how-it-works"; }} 
         />
 
         {/* Services / What We Digitize Grid */}

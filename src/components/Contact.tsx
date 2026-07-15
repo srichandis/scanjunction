@@ -319,7 +319,7 @@ export default function Contact() {
                   ) : (
                     <>
                       <Send size={16} />
-                      <span>Book Free Doorstep Pickup</span>
+                      <span>Get Free Samples</span>
                     </>
                   )}
                 </button>

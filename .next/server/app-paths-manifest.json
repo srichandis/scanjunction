@@ -1,9 +1,5 @@
 {
-  "/services/[slug]/page": "app/services/[slug]/page.js",
-  "/family-vault/page": "app/family-vault/page.js",
-  "/how-it-works/page": "app/how-it-works/page.js",
-  "/photobook/create/page": "app/photobook/create/page.js",
-  "/pricing/page": "app/pricing/page.js",
+  "/page": "app/page.js",
   "/[slug]/page": "app/[slug]/page.js",
-  "/page": "app/page.js"
+  "/how-it-works/page": "app/how-it-works/page.js"
 }

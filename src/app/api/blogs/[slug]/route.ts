@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cleanWordPressHtml } from "@/lib/wordpress";
 
 function cleanHtml(htmlStr: string) {
   if (!htmlStr) return "";
@@ -75,7 +76,9 @@ export async function GET(
     const excerpt = cleanHtml(
       post.excerpt?.rendered || "Read our latest blog update on ScanJunction.",
     );
-    const content = post.content?.rendered || "";
+    const content = post.content?.rendered
+      ? cleanWordPressHtml(post.content.rendered)
+      : "";
     const dateObj = new Date(post.date);
     const formattedDate = Number.isNaN(dateObj.getTime())
       ? "Recently"
