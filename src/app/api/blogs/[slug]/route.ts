@@ -28,7 +28,7 @@ export async function GET(
     const timeoutId = setTimeout(() => controller.abort(), 8000);
 
     const response = await fetch(
-      `https://scanjunction.com/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+      `https://api.scanjunction.com/wp-json/wp/v2/posts?slug=${slug}&_embed`,
       {
         signal: controller.signal,
         headers: {
@@ -92,7 +92,7 @@ export async function GET(
       excerpt,
       content,
       date: formattedDate,
-      link: post.link || `https://scanjunction.com/?p=${post.id}`,
+      link: post.link || `https://api.scanjunction.com/?p=${post.id}`,
       imageUrl,
       author: post._embedded?.author?.[0]?.name || "ScanJunction Team",
       categories: post.categories || [],

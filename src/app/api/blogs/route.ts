@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
     const timeoutId = setTimeout(() => controller.abort(), 8000);
 
     const response = await fetch(
-      `https://scanjunction.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`,
+      `https://api.scanjunction.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${page}`,
       {
         signal: controller.signal,
         headers: {
@@ -102,7 +102,7 @@ export async function GET(request: NextRequest) {
             : excerpt,
         content,
         date: formattedDate,
-        link: post.link || `https://scanjunction.com/?p=${post.id}`,
+        link: post.link || `https://api.scanjunction.com/?p=${post.id}`,
         imageUrl,
         author: post._embedded?.author?.[0]?.name || "ScanJunction Team",
         categories: post.categories || [],
@@ -134,7 +134,7 @@ export async function GET(request: NextRequest) {
           content:
             "<p>Preserving old negatives and slides requires careful handling. Here are the best practices for keeping your vintage media safe.</p><p>Store negatives in acid-free sleeves, keep them in a cool, dry place, and handle them by the edges to avoid fingerprint oils.</p>",
           date: "July 10, 2026",
-          link: "https://scanjunction.com/blog",
+          link: "https://api.scanjunction.com/blog",
           imageUrl:
             "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop",
           author: "ScanJunction Team",
@@ -150,7 +150,7 @@ export async function GET(request: NextRequest) {
           content:
             "<p>VHS tapes have a lifespan of 10-25 years. After that, the magnetic tape degrades and the video quality deteriorates.</p><p>Digitizing your VHS tapes ensures your family memories last forever in a modern digital format.</p>",
           date: "June 24, 2026",
-          link: "https://scanjunction.com/blog",
+          link: "https://api.scanjunction.com/blog",
           imageUrl:
             "https://images.unsplash.com/photo-1542204172-e7052809a86e?q=80&w=1200&auto=format&fit=crop",
           author: "ScanJunction Team",
@@ -166,7 +166,7 @@ export async function GET(request: NextRequest) {
           content:
             "<p>A digital family vault is more than just cloud storage. It's a curated, organized archive of your family's most precious memories.</p><p>With ScanJunction, you get a secure vault with AI-powered face grouping, smart search, and easy sharing.</p>",
           date: "May 15, 2026",
-          link: "https://scanjunction.com/blog",
+          link: "https://api.scanjunction.com/blog",
           imageUrl:
             "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
           author: "ScanJunction Team",
@@ -182,7 +182,7 @@ export async function GET(request: NextRequest) {
           content:
             "<p>Book scanning requires specialized equipment to capture pages without damaging the binding. Our overhead scanners are designed specifically for this purpose.</p><p>From cookbooks to photo albums, we handle all types of bound media with care.</p>",
           date: "April 28, 2026",
-          link: "https://scanjunction.com/blog",
+          link: "https://api.scanjunction.com/blog",
           imageUrl:
             "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1200&auto=format&fit=crop",
           author: "ScanJunction Team",
@@ -198,7 +198,7 @@ export async function GET(request: NextRequest) {
           content:
             "<p>Data extraction from physical documents involves scanning, OCR processing, and verification. Our process ensures 99.9% accuracy.</p><p>Whether it's legal documents, medical records, or historical archives, we handle it with precision.</p>",
           date: "April 10, 2026",
-          link: "https://scanjunction.com/blog",
+          link: "https://api.scanjunction.com/blog",
           imageUrl:
             "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1200&auto=format&fit=crop",
           author: "ScanJunction Team",
@@ -214,7 +214,7 @@ export async function GET(request: NextRequest) {
           content:
             "<p>Photo restoration is a delicate art combining digital scanning expertise with careful editing. Tears, creases, and color fading can all be repaired.</p><p>Our team uses professional tools to restore your photos to their original condition or better.</p>",
           date: "March 15, 2026",
-          link: "https://scanjunction.com/blog",
+          link: "https://api.scanjunction.com/blog",
           imageUrl:
             "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop",
           author: "ScanJunction Team",

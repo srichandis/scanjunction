@@ -354,7 +354,7 @@ export default function BlogPostPage({
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-brand-orange hover:bg-brand-orange/95 text-white font-sans font-semibold px-6 py-3 rounded-full transition-all"
                 >
-                  <span>Read on scanjunction.com</span>
+                  <span>Read on api.scanjunction.com</span>
                   <ArrowUpRight size={16} />
                 </a>
               </div>

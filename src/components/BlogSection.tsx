@@ -35,7 +35,7 @@ export default function BlogSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 space-y-4 md:space-y-0">
           <div className="space-y-4">
             <span className="font-sans text-xs uppercase tracking-[0.2em] font-semibold text-brand-orange block">
-              Direct from scanjunction.com
+              Direct from api.scanjunction.com
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-darkteal">
               Latest Blog Updates

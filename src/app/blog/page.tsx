@@ -190,7 +190,7 @@ export default function BlogPage() {
                 <div className="mb-8 flex items-center space-x-2">
                   <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
                   <span className="font-sans text-xs text-emerald-600 font-medium">
-                    Synced live from scanjunction.com
+                    Synced live from api.scanjunction.com
                   </span>
                 </div>
               )}
@@ -210,7 +210,7 @@ export default function BlogPage() {
                 </p>
                 {source === "live" && (
                   <a
-                    href="https://scanjunction.com/blog"
+                    href="https://api.scanjunction.com/blog"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-sans text-xs text-brand-orange font-semibold hover:underline inline-flex items-center space-x-1"
