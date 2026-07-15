@@ -148,9 +148,9 @@ export default function Footer({ onNavigate }: FooterProps) {
               </div>
               <p className="text-[11px] text-slate-400">Based on 1,000+ reviews on Google across Bangalore.</p>
               <a 
-                href="https://google.com" 
+                href="https://search.google.com/local/writereview?placeid=ChIJL6sXSaXWrjsRgX1CgGsA5qg" 
                 target="_blank" 
-                referrerPolicy="no-referrer"
+                rel="noopener noreferrer"
                 className="text-[10px] text-brand-orange font-bold uppercase tracking-wider block hover:underline"
               >
                 Review us on Google →

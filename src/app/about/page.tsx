@@ -501,7 +501,7 @@ export default function AboutPage() {
 
           <div className="mt-10 text-center">
             <a
-              href="https://search.google.com/local/reviews?placeid=ChIJL6sXSaXWrjsRgX1CgGsA5qg"
+              href="https://search.google.com/local/writereview?placeid=ChIJL6sXSaXWrjsRgX1CgGsA5qg"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-brand-orange hover:bg-brand-orange/95 text-white font-sans font-semibold text-sm px-6 py-3 rounded-full shadow-md transition-all"

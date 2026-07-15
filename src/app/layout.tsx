@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "ScanJunction Home",
   description:
     "A premium, fully responsive home page for ScanJunction with live WordPress blog integration.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
