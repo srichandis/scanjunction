@@ -29,13 +29,23 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const response = await fetch("/api/contact/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit");
+      }
+
       setIsSubmitted(true);
       // Reset form
       setFormData({
@@ -47,7 +57,12 @@ export default function Contact() {
         address: "",
         message: ""
       });
-    }, 1500);
+    } catch (err) {
+      console.error("Form submission error:", err);
+      alert("Something went wrong. Please try again or email us directly at scanjunction@gmail.com.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

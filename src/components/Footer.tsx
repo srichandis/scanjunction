@@ -7,9 +7,9 @@ interface FooterProps {
 
 export default function Footer({ onNavigate }: FooterProps) {
   const socialLinks = [
-    { name: "Facebook", href: "https://facebook.com", icon: Facebook },
-    { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-    { name: "Twitter", href: "https://twitter.com", icon: Twitter }
+    { name: "Facebook", href: "https://www.facebook.com/scanjunction", icon: Facebook },
+    { name: "Instagram", href: "https://www.instagram.com/scanjunction/", icon: Instagram },
+    { name: "Twitter", href: "https://x.com/scanjunction", icon: Twitter }
   ];
 
   const services = [
@@ -148,7 +148,7 @@ export default function Footer({ onNavigate }: FooterProps) {
               </div>
               <p className="text-[11px] text-slate-400">Based on 1,000+ reviews on Google across Bangalore.</p>
               <a 
-                href="https://search.google.com/local/writereview?placeid=ChIJL6sXSaXWrjsRgX1CgGsA5qg" 
+                href="https://g.page/r/CciA3TGL-fmQEBM/review" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[10px] text-brand-orange font-bold uppercase tracking-wider block hover:underline"
@@ -166,8 +166,8 @@ export default function Footer({ onNavigate }: FooterProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© 2026 ScanJunction. All Rights Reserved. Digitally restored and archived with pride.</p>
           <div className="flex space-x-6">
-            <a href="#faq" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
-            <a href="#faq" className="hover:text-slate-400 transition-colors">Terms & Conditions</a>
+            <a href="/privacy-policy" className="hover:text-slate-400 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-slate-400 transition-colors">Terms & Conditions</a>
             <span className="flex items-center space-x-1">
               <span>Made with</span>
               <Heart size={10} className="text-rose-500 fill-current" />

@@ -45,7 +45,7 @@ export default function Testimonials() {
               </div>
               <p className="text-xs text-slate-600 font-bold mt-1">Based on 102+ reviews</p>
               <a 
-                href="https://search.google.com/local/writereview?placeid=ChIJL6sXSaXWrjsRgX1CgGsA5qg" 
+                href="https://g.page/r/CciA3TGL-fmQEBM/review" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[10px] text-brand-orange hover:underline font-semibold"
@@ -163,7 +163,7 @@ export default function Testimonials() {
         {/* View all reviews CTA */}
         <div className="mt-10 text-center">
           <a
-            href="https://search.google.com/local/writereview?placeid=ChIJL6sXSaXWrjsRgX1CgGsA5qg"
+            href="https://g.page/r/CciA3TGL-fmQEBM/review"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-white hover:bg-slate-50 text-slate-600 font-sans font-semibold text-sm px-6 py-3 rounded-full border border-slate-200 transition-all shadow-sm"

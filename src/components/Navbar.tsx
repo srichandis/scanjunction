@@ -87,7 +87,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
         </div>
         <div className="hidden sm:flex items-center space-x-4">
           <div className="flex items-center space-x-2.5 border-r border-slate-700 pr-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-orange transition-colors" aria-label="Instagram">
+            <a href="https://www.instagram.com/scanjunction/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-orange transition-colors" aria-label="Instagram">
               <Instagram size={13} />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-orange transition-colors" aria-label="LinkedIn">
