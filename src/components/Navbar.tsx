@@ -10,7 +10,6 @@ interface NavbarProps {
 export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isPhotobooksOpen, setIsPhotobooksOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -31,10 +30,6 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
     { name: "VHS to Digital", id: "vhs" },
     { name: "Audio Conversion", id: "audio" },
     { name: "Photo Restoration", id: "restoration" },
-  ];
-
-  const photobookLinks = [
-    { name: "Create Photo Book", id: "photobook-create" },
   ];
 
   const resources = [
@@ -170,42 +165,15 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
               )}
             </div>
 
-            {/* Photobooks Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setIsPhotobooksOpen(true)}
-              onMouseLeave={() => setIsPhotobooksOpen(false)}
+            {/* Print (direct link) */}
+            <button
+              onClick={() => handleNavItemClick("photobook-create")}
+              className={`px-3 py-2 rounded-lg hover:text-brand-orange hover:bg-slate-50 transition-colors cursor-pointer ${
+                activeSection === "photobook-create" ? "text-brand-orange font-semibold" : ""
+              }`}
             >
-              <button
-                className="flex items-center space-x-1 px-3 py-2 rounded-lg hover:text-brand-orange hover:bg-slate-50 transition-colors focus:outline-none cursor-pointer"
-                id="photobooks-dropdown-btn"
-              >
-                <span>Photobooks</span>
-                <ChevronDown size={13} className={`transform transition-transform duration-200 ${isPhotobooksOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              {isPhotobooksOpen && (
-                <div
-                  className="absolute top-full left-0 mt-0.5 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 z-50 animate-fade-in"
-                  id="photobooks-dropdown-menu"
-                >
-                  <div className="grid grid-cols-1 gap-0.5 px-1.5">
-                    {photobookLinks.map((link) => (
-                      <button
-                        key={link.id}
-                        onClick={() => {
-                          handleNavItemClick(link.id);
-                          setIsPhotobooksOpen(false);
-                        }}
-                        className="text-left px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-brand-orange text-xs transition-all cursor-pointer font-medium"
-                      >
-                        {link.name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+              Print
+            </button>
 
             {/* Family Vault */}
             <button
@@ -334,20 +302,12 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
 
             {/* Main Nav Items */}
             <div className="py-2 space-y-0.5">
-              {/* Photobooks Mobile */}
-              <div className="border-b border-slate-100 pb-1">
-                <span className="block w-full text-left py-2.5 px-1 text-slate-500 font-semibold text-sm">
-                  Photobooks
-                </span>
-                <div className="pl-4 space-y-0.5">
-                  <button
-                    onClick={() => handleNavItemClick("photobook-create")}
-                    className="block w-full text-left py-2 px-1 text-sm text-slate-600 hover:text-brand-orange"
-                  >
-                    Create Photo Book
-                  </button>
-                </div>
-              </div>
+              <button
+                onClick={() => handleNavItemClick("photobook-create")}
+                className="block w-full text-left py-2.5 px-1 border-b border-slate-100 hover:text-brand-orange"
+              >
+                Print
+              </button>
               <button
                 onClick={() => handleNavItemClick("family-vault")}
                 className="block w-full text-left py-2.5 px-1 border-b border-slate-100 hover:text-brand-orange"
